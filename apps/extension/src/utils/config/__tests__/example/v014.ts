@@ -103,4 +103,7 @@ Input:
   sideContent: {
     width: 400,
   },
+  textSelectionButton: {
+    enabled: true,
+  },
 }
