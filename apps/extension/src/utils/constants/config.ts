@@ -108,6 +108,9 @@ export const DEFAULT_CONFIG: Config = {
     enabled: true,
     position: 0.66,
   },
+  textSelectionButton: {
+    enabled: true,
+  },
   sideContent: {
     width: DEFAULT_SIDE_CONTENT_WIDTH,
   },

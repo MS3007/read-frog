@@ -9,6 +9,7 @@ popup:
   translate: Translate
   showOriginal: Show Original
   enabledFloatingButton: Show floating button
+  enabledTextSelectionButton: Show text selection button
   alwaysTranslate: Always translate this site
   options: Options
   hover: Hover
