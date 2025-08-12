@@ -12,5 +12,6 @@ export function migrate(oldConfig: any): any {
         },
       },
     },
+    textSelectionButton: { enabled: true },
   }
 }
