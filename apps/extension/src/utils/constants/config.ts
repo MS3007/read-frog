@@ -108,7 +108,7 @@ export const DEFAULT_CONFIG: Config = {
     enabled: true,
     position: 0.66,
   },
-  textSelectionTooltip: {
+  selectionToolbar: {
     enabled: true,
   },
   sideContent: {

@@ -15,7 +15,7 @@ import LanguageOptionsSelector from './components/language-options-selector'
 import QuickLinks from './components/quick-links'
 import ReadButton from './components/read-button'
 import ReadProviderSelector from './components/read-provider-selector'
-import TextSelectionTooltip from './components/text-selection-tooltip'
+import SelectionToolbar from './components/text-selection-tooltip'
 import TranslateButton from './components/translate-button'
 import TranslatePromptSelector from './components/translate-prompt-selector'
 import TranslateProviderSelector from './components/translate-provider-selector'
@@ -43,7 +43,7 @@ function App() {
         <AlwaysTranslate />
         <Hotkey />
         <FloatingButton />
-        <TextSelectionTooltip />
+        <SelectionToolbar />
         <QuickLinks />
       </div>
       <div className="flex items-center justify-between bg-neutral-200 px-2 py-1 dark:bg-neutral-800">

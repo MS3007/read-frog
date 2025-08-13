@@ -1,6 +1,6 @@
 import type { Config } from '@/types/config/config'
 
-export const description = 'Add textSelectionTooltip'
+export const description = 'Add selectionToolbar'
 
 export const configExample: Config = {
   language: {
@@ -103,5 +103,5 @@ Input:
   sideContent: {
     width: 400,
   },
-  textSelectionTooltip: { enabled: true },
+  selectionToolbar: { enabled: true },
 }

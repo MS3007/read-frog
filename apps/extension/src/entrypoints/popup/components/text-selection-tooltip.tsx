@@ -4,22 +4,22 @@ import { useAtom } from 'jotai'
 import { useId } from 'react'
 import { configFields } from '@/utils/atoms/config'
 
-export default function TextSelectionTooltip() {
+export default function SelectionToolbar() {
   const labelId = useId()
-  const [textSelectionTooltip, setTextSelectionTooltip] = useAtom(
-    configFields.textSelectionTooltip,
+  const [selectionToolbar, setSelectionToolbar] = useAtom(
+    configFields.selectionToolbar,
   )
 
   return (
     <div className="flex items-center justify-between gap-2">
       <span id={labelId} className="text-[13px] font-medium">
-        {i18n.t('popup.enabledTextSelectionTooltip')}
+        {i18n.t('popup.enabledSelectionToolbar')}
       </span>
       <Switch
-        checked={textSelectionTooltip.enabled}
+        checked={selectionToolbar.enabled}
         aria-labelledby={labelId}
         onCheckedChange={(checked) => {
-          setTextSelectionTooltip({ ...textSelectionTooltip, enabled: checked })
+          setSelectionToolbar({ ...selectionToolbar, enabled: checked })
         }}
       />
     </div>
