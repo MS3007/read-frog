@@ -103,7 +103,7 @@ Input:
   sideContent: {
     width: 400,
   },
-  textSelectionButton: {
+  textSelectionTooltip: {
     enabled: true,
   },
 }

@@ -9,7 +9,7 @@ popup:
   translate: 翻訳
   showOriginal: 原文を表示
   enabledFloatingButton: フローティングボタンを有効にする
-  enabledTextSelectionButton: テキスト選択ボタンを有効にする
+  enabledTextSelectionTooltip: テキスト選択ボタンを有効にする
   alwaysTranslate: このサイトを常に翻訳する
   options: オプション
   hover: ホバー

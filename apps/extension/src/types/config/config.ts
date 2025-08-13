@@ -18,8 +18,8 @@ const floatingButtonSchema = z.object({
   position: z.number().min(0).max(1),
 })
 
-// Text selection button schema
-const textSelectionButtonSchema = z.object({
+// Text selection tooltip schema
+const textSelectionTooltipSchema = z.object({
   enabled: z.boolean(),
 })
 
@@ -35,7 +35,7 @@ export const configSchema = z.object({
   read: readConfigSchema,
   translate: translateConfigSchema,
   floatingButton: floatingButtonSchema,
-  textSelectionButton: textSelectionButtonSchema,
+  textSelectionTooltip: textSelectionTooltipSchema,
   sideContent: sideContentSchema,
 })
 

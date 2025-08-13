@@ -12,9 +12,5 @@ export function migrate(oldConfig: any): any {
         },
       },
     },
-    textSelectionButton:
-      oldConfig?.textSelectionButton && typeof oldConfig.textSelectionButton.enabled === 'boolean'
-        ? oldConfig.textSelectionButton
-        : { enabled: true },
   }
 }
