@@ -18,7 +18,7 @@ const floatingButtonSchema = z.object({
   position: z.number().min(0).max(1),
 })
 
-// Text selection tooltip schema
+// Text selection button schema
 const textSelectionTooltipSchema = z.object({
   enabled: z.boolean(),
 })
