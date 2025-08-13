@@ -1,5 +1,13 @@
 # @read-frog/extension
 
+## 1.2.1
+
+### Patch Changes
+
+- [#308](https://github.com/mengxi-ream/read-frog/pull/308) [`ac96b1c`](https://github.com/mengxi-ream/read-frog/commit/ac96b1c18960d0c169feaa1dea9ee46468c83ba6) Thanks [@taiiiyang](https://github.com/taiiiyang)! - fix: Language selector text is unreadable in Dark Mode
+
+- [#312](https://github.com/mengxi-ream/read-frog/pull/312) [`5120759`](https://github.com/mengxi-ream/read-frog/commit/5120759a1a18e92431ea0d184056ba727ff4e999) Thanks [@ananaBMaster](https://github.com/ananaBMaster)! - fix: popup ui
+
 ## 1.2.0
 
 ### Minor Changes
