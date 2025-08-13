@@ -16,7 +16,7 @@ export default function TextSelectionButton() {
       <Switch
         checked={textSelectionButton.enabled}
         onCheckedChange={(checked) => {
-          setTextSelectionButton({ enabled: checked })
+          setTextSelectionButton({ ...textSelectionButton, enabled: checked })
         }}
       />
     </div>
