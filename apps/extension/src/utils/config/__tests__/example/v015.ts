@@ -1,6 +1,6 @@
 import type { Config } from '@/types/config/config'
 
-export const description = 'Add Gemini to read feature'
+export const description = 'Add textSelectionTooltip'
 
 export const configExample: Config = {
   language: {
