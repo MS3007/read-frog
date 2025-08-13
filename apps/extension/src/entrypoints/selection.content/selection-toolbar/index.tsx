@@ -1,7 +1,8 @@
 import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 import { useEffect, useLayoutEffect, useRef } from 'react'
 import { configFields } from '@/utils/atoms/config'
-import { isTooltipVisibleAtom, selectionContentAtom } from './atom'
+import { onMessage } from '@/utils/message'
+import { isTooltipVisibleAtom, isTranslatePopoverVisibleAtom, mouseClickPositionAtom, selectionContentAtom } from './atom'
 import { TranslateButton, TranslatePopover } from './translate-button'
 
 const DOWNWARD_OFFSET_Y = 18
@@ -18,6 +19,8 @@ export function SelectionToolbar() {
   const isDraggingFromTooltipRef = useRef(false) // track if dragging started from tooltip
   const [isTooltipVisible, setIsTooltipVisible] = useAtom(isTooltipVisibleAtom)
   const setSelectionContent = useSetAtom(selectionContentAtom)
+  const setIsTranslatePopoverVisible = useSetAtom(isTranslatePopoverVisibleAtom)
+  const setMouseClickPosition = useSetAtom(mouseClickPositionAtom)
   const selectionToolbar = useAtomValue(configFields.selectionToolbar)
 
   // Calculate position after tooltip is rendered
@@ -156,6 +159,24 @@ export function SelectionToolbar() {
     document.addEventListener('selectionchange', handleSelectionChange)
     window.addEventListener('scroll', handleScroll, { passive: true })
 
+    // Handle context-menu action from background
+    const offTriggerSelection = onMessage('triggerSelectionTranslate', () => {
+      const selection = window.getSelection()
+      const selectedText = selection?.toString().trim() || ''
+      if (!selection || selectedText.length === 0)
+        return
+      setSelectionContent(selectedText)
+      const range = selection.getRangeAt(0)
+      const rect = range.getBoundingClientRect()
+      const scrollX = window.scrollX
+      const scrollY = window.scrollY
+      const x = rect.left + scrollX
+      const y = rect.top + scrollY
+      setMouseClickPosition({ x, y })
+      setIsTooltipVisible(false)
+      setIsTranslatePopoverVisible(true)
+    })
+
     return () => {
       document.removeEventListener('mouseup', handleMouseUp)
       document.removeEventListener('mousedown', handleMouseDown)
@@ -164,8 +185,15 @@ export function SelectionToolbar() {
       if (animationFrameId) {
         cancelAnimationFrame(animationFrameId)
       }
+      offTriggerSelection()
     }
-  }, [isTooltipVisible, setSelectionContent, setIsTooltipVisible])
+  }, [
+    isTooltipVisible,
+    setSelectionContent,
+    setIsTooltipVisible,
+    setIsTranslatePopoverVisible,
+    setMouseClickPosition,
+  ])
 
   return (
     <div ref={tooltipContainerRef}>

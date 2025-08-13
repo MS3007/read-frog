@@ -140,3 +140,5 @@ noConfig:
     firstOnThe: first on the
     optionsPage: options
     page: page
+rightClickMenu:
+  translateSelection: Translate selected content

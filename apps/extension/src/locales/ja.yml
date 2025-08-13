@@ -138,3 +138,5 @@ noConfig:
     firstOnThe: する必要があります（
     optionsPage: オプションページ
     page: ）
+rightClickMenu:
+  translateSelection: 選択した内容を翻訳

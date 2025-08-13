@@ -3,7 +3,7 @@ import { browser, defineContentScript } from '#imports'
 import { globalConfig, loadGlobalConfig } from '@/utils/config/config'
 import { shouldEnableAutoTranslation } from '@/utils/host/translate/auto-translation'
 import { logger } from '@/utils/logger'
-import { sendMessage } from '@/utils/message'
+import { onMessage, sendMessage } from '@/utils/message'
 import { registerNodeTranslationTriggers } from './translation-control/node-translation'
 import { PageTranslationManager } from './translation-control/page-translation'
 import './listen'
@@ -66,6 +66,16 @@ export default defineContentScript({
       if (msg.type !== 'STATUS_PUSH' || msg.enabled === manager.isActive)
         return
       msg.enabled ? manager.start() : manager.stop()
+    })
+
+    // Listen for background context-menu action: trigger selection translate
+    onMessage('triggerSelectionTranslate', () => {
+      const selection = window.getSelection()
+      if (!selection || selection.rangeCount === 0)
+        return
+      // Let SelectionToolbar logic react to selection change and show UI
+      const ev = new Event('selectionchange')
+      document.dispatchEvent(ev)
     })
 
     // ! Temporary code for browser has no port.onMessage.addListener api like Orion

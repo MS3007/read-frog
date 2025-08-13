@@ -11,6 +11,8 @@ interface ProtocolMap {
   setEnablePageTranslation: (data: { tabId: number, enabled: boolean }) => void
   setEnablePageTranslationOnContentScript: (data: { enabled: boolean }) => void
   resetPageTranslationOnNavigation: (data: { url: string }) => void
+  // context-menu actions
+  triggerSelectionTranslate: () => void
   // read article
   readArticle: () => void
   popupRequestReadArticle: (data: { tabId: number }) => void

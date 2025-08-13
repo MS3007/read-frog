@@ -141,3 +141,5 @@ noConfig:
     firstOnThe: 在
     optionsPage: 选项
     page: 页
+rightClickMenu:
+  translateSelection: 翻译选中内容

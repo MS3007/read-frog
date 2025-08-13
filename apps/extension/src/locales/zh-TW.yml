@@ -140,3 +140,5 @@ noConfig:
     firstOnThe: 在
     optionsPage: 選項
     page: 頁
+rightClickMenu:
+  translateSelection: 翻譯選中內容

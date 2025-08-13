@@ -1,4 +1,4 @@
-import { browser, defineBackground } from '#imports'
+import { browser, defineBackground, i18n } from '#imports'
 import { WEBSITE_URL } from '@/utils/constants/url'
 import { logger } from '@/utils/logger'
 import { onMessage, sendMessage } from '@/utils/message'
@@ -48,4 +48,28 @@ export default defineBackground(() => {
   setUpCacheCleanup()
 
   proxyFetch()
+
+  // Create context menus for selection translation and page translation toggle
+  try {
+    browser.contextMenus.removeAll()
+    browser.contextMenus.create({
+      id: 'readfrog-translate-selection',
+      title: i18n.t('rightClickMenu.translateSelection'),
+      contexts: ['selection'],
+    })
+
+    browser.contextMenus.onClicked.addListener(async (info, tab) => {
+      const tabId = tab?.id
+      if (typeof tabId !== 'number')
+        return
+
+      if (info.menuItemId === 'readfrog-translate-selection') {
+        // Notify selection.content to open translate popover for current selection
+        sendMessage('triggerSelectionTranslate', undefined, tabId)
+      }
+    })
+  }
+  catch (err) {
+    logger.error('Failed to create context menus', err)
+  }
 })

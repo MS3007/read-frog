@@ -140,3 +140,5 @@ noConfig:
     firstOnThe: 먼저
     optionsPage: 옵션
     page: 페이지에서
+rightClickMenu:
+  translateSelection: 선택한 내용 번역
