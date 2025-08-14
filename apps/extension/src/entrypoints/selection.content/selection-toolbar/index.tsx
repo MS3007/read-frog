@@ -169,7 +169,7 @@ export function SelectionToolbar() {
       const range = selection.getRangeAt(0)
       const rect = range.getBoundingClientRect()
       const {scrollX} = window
-      const scrollY = window.scrollY
+      const {scrollY} = window
       const x = rect.left + scrollX
       const y = rect.top + scrollY
       setMouseClickPosition({ x, y })
