@@ -168,7 +168,7 @@ export function SelectionToolbar() {
       setSelectionContent(selectedText)
       const range = selection.getRangeAt(0)
       const rect = range.getBoundingClientRect()
-      const scrollX = window.scrollX
+      const {scrollX} = window
       const scrollY = window.scrollY
       const x = rect.left + scrollX
       const y = rect.top + scrollY
