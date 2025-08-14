@@ -2,4 +2,4 @@
 "@read-frog/extension": patch
 ---
 
-fix: popup ui
+feat: add right-click context menu for text selection translation

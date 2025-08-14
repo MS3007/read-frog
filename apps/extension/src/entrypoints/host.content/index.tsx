@@ -75,7 +75,8 @@ export default defineContentScript({
         return
       // Let SelectionToolbar logic react to selection change and show UI
       const ev = new Event('selectionchange')
-      document.dispatchEvent(ev)
+      // Directly trigger selection translation logic instead of dispatching synthetic event
+      triggerSelectionTranslation()
     })
 
     // ! Temporary code for browser has no port.onMessage.addListener api like Orion

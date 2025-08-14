@@ -51,7 +51,6 @@ export default defineBackground(() => {
 
   // Create context menus for selection translation and page translation toggle
   try {
-    browser.contextMenus.removeAll()
     browser.contextMenus.create({
       id: 'readfrog-translate-selection',
       title: i18n.t('rightClickMenu.translateSelection'),
